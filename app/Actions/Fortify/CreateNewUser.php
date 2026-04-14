@@ -31,6 +31,8 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $input['password'],
         ]);
 
+        session()->put('new_user_id', $user->id);
+
         $user->assignRole('user');
 
         return $user;
